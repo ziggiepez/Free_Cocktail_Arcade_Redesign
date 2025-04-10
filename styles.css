@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap');
+/* remove default margin and padding from body*/
+:root {
+    --yellowBackground: rgba(255, 250, 155, 0.75);
+    --lightUp: 0px 0px 20px #3ffadb;
+    --whiteBackground: rgba(255, 255, 254, 0.75);
+    --boxShadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+}
 body{
     margin: 0;
     padding: 0;
     font-size: 16px;
     font-family: 'Press Start 2P', cursive;
 }
+/*full body container may not be needed?*/
 .container{
     width: 100vw;
     height: 100vh;
@@ -17,6 +25,7 @@ body{
     flex-direction: column;
     overflow: hidden;
 }
+/*header and nav sections*/
 header{
     display: flex;
     justify-content: space-between;
@@ -31,14 +40,35 @@ header h1{
     padding: 25px;
     font-size: 2.5rem;
     border: 2px solid #000;
-    background: rgba(255, 255, 254, 0.75);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: var(--yellowBackground);
+    box-shadow: var(--boxShadow);
 }
 header img:hover{
     cursor: pointer;
-    box-shadow: 0px 0px 20px #3ffadb;
+    box-shadow: var(--lightUp);
     background-color: #3ffadb;
+}.hidden{
+    display: none;
 }
+header nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 500px;
+    width: 200px;
+    background-color: var(--whiteBackground);
+    z-index: 10;
+}
+header nav ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/*main body section*/
 main{
     margin: 0 auto;
     padding: 0 20px;
@@ -53,8 +83,8 @@ main h2{
     grid-column: 1/5;
     padding: 20px;
     border: 2px solid #000;
-    background: rgba(255, 250, 155, 0.75);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: var(--yellowBackground);
+    box-shadow: var(--boxShadow);
     color: #111;
     font-family: "Monomaniac One";
     font-size: 1.5rem;
@@ -97,8 +127,8 @@ main .nextBtn button{
     padding: 22px 11px 14px 25px;
     border-radius: 40px;
     border: 2px solid #000;
-    background: rgba(255, 255, 255, 0.75);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: var(--whiteBackground);
+    box-shadow: var(--boxShadow);
     color: #000;
     font-family: "Press Start 2P";
     font-size: 64px;
@@ -107,9 +137,9 @@ main .nextBtn button{
     line-height: normal;
 }
 main .nextBtn button:hover{
-    background: #f6fca8;
+    background: var(--yellowBackground);
     cursor: pointer;
-    box-shadow: 0px 0px 5px #3ffadb
+    box-shadow: var(--lightUp);
 }
 main .backBtn{
     grid-column: 1/2;
@@ -119,8 +149,8 @@ main .backBtn button{
     padding: 22px 11px 14px 25px;
     border-radius: 40px;
     border: 2px solid #000;
-    background: rgba(255, 255, 255, 0.75);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: var(--whiteBackground);
+    box-shadow: var(--boxShadow);
     color: #000;
     font-family: "Press Start 2P";
     font-size: 64px;
@@ -129,9 +159,9 @@ main .backBtn button{
     line-height: normal;
 }
 main .backBtn button:hover{
-    background: #f6fca8;
+    background: var(--yellowBackground);
     cursor: pointer;
-    box-shadow: 0px 0px 5px #3ffadb
+    box-shadow: var(--lightUp);
 }
 main .plansSticky{
     grid-row: 7/9;
@@ -161,8 +191,8 @@ main .plansBtn button{
     flex-shrink: 0;
     border-radius: 40px;
     border: 2px solid #000;
-    background: #DED78E;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: var(--whiteBackground);
+    box-shadow: var(--boxShadow);
     color: #000;
     font-family: "Press Start 2P";
     font-size: 1rem;
@@ -171,10 +201,11 @@ main .plansBtn button{
     line-height: normal;
 }
 main .plansBtn button:hover{
-    background: #f6fca8;
+    background: var(--yellowBackground);
     cursor: pointer;
-    box-shadow: 0px 0px 5px #3ffadb
+    box-shadow: var(--lightUp);
 }
+/*card styles*/
 .cardOne{
     grid-row: 2/7;
     grid-column: 2/7;
@@ -188,14 +219,18 @@ main .plansBtn button:hover{
     padding: 10px;
     align-items: center;
     border: 1px solid #000;
-    background: rgba(255, 255, 255, 0.75);
+    background: var(--whiteBackground);
     width: 30%;
 }
 .cardOne p{
-    background-color: rgba(255, 255, 254, 0.75);
+    background-color: var(--whiteBackground);
     margin-bottom: 0;
     font-family: "Monomaniac One";
     padding: 10px;
+    color: rgba(0, 0, 0, 0.0);
+}
+.cardOne p:hover{
+    color: rgba(0, 0, 0, 1)
 }
 .cardTwo{
     grid-row: 2/7;
@@ -210,11 +245,11 @@ main .plansBtn button:hover{
     padding: 10px;
     align-items: center;
     border: 1px solid #000;
-    background: rgba(255, 255, 255, 0.75);
+    background: var(--whiteBackground);
     width: 30%;
 }
 .cardTwo p{
-    background-color: rgba(255, 255, 254, 0.75);
+    background-color: var(--whiteBackground);
     margin-bottom: 0;
     font-family: "Monomaniac One";
     padding: 10px;
@@ -232,11 +267,11 @@ main .plansBtn button:hover{
     padding: 10px;
     align-items: center;
     border: 1px solid #000;
-    background: rgba(255, 255, 255, 0.75);
+    background: var(--whiteBackground);
     width: 30%;
 }
 .cardThree p{
-    background-color: rgba(255, 255, 254, 0.75);
+    background-color: var(--whiteBackground);
     margin-bottom: 0;
     font-family: "Monomaniac One";
     padding: 10px;
@@ -254,15 +289,17 @@ main .plansBtn button:hover{
     padding: 10px;
     align-items: center;
     border: 1px solid #000;
-    background: rgba(255, 255, 255, 0.75);
+    background: var(--whiteBackground);
     width: 30%;
 }
 .cardFour p{
-    background-color: rgba(255, 255, 254, 0.75);
+    background-color: var(--whiteBackground);
     margin-bottom: 0;
     font-family: "Monomaniac One";
     padding: 10px;
 }
+
+/*footer section*/
 footer{
     grid-row: 12/13;
     grid-column: 1/13;
@@ -277,6 +314,6 @@ footer a{
     color: #FFF;
 }
 footer a:hover{
-    color: #f6fca8;
-    text-shadow: 0px 0px 5px #3ffadb
+    color: var(--yellowBackground);
+    text-shadow: var(--lightUp);
 }
