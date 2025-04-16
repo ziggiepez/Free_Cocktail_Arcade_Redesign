@@ -1,215 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap');
-/* remove default margin and padding from body*/
-:root {
-    --yellowBackground: rgba(255, 250, 155, 0.75);
-    --lightUp: 0px 0px 20px #3ffadb;
-    --whiteBackground: rgba(255, 255, 254, 0.75);
-    --boxShadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
 body{
     margin: 0;
     padding: 0;
     font-size: 16px;
     font-family: 'Press Start 2P', cursive;
 }
+@import "./variables";
+@import "./mixins";
+
 /*full body container may not be needed?*/
 .container{
     width: 100vw;
     height: 100vh;
-    background-image: url(images/backgroundCabOption4.jpg);
+    background-image: url("../images/backgroundCabOption4.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-}
-/*header and nav sections*/
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 13%;
-    padding: 0 20px;
-}
-header h1{
-    color: #0e0d0d;
-    font-family: 'Press Start 2P', cursive;
-    margin: 0;
-    padding: 25px;
-    font-size: 2.5rem;
-    border: 2px solid #000;
-    background: var(--yellowBackground);
-    box-shadow: var(--boxShadow);
-}
-header img:hover{
-    cursor: pointer;
-    box-shadow: var(--lightUp);
-    background-color: #3ffadb;
-}.hidden{
-    display: none;
-}
-header nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 500px;
-    width: 200px;
-    background-color: var(--whiteBackground);
-    z-index: 10;
-}
-header nav ul{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-/*main body section*/
-main{
-    margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    height: 87%;
-    width: 95%;
-    grid-gap: 5px;
-}
-main h2{
-    grid-column: 1/5;
-    padding: 20px;
-    border: 2px solid #000;
-    background: var(--yellowBackground);
-    box-shadow: var(--boxShadow);
-    color: #111;
-    font-family: "Monomaniac One";
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    /*see header scss file*/
+    @import "./header";
+    /*see main scss file*/
+    @import "./main";
+
 }
 
-main .menuSticky{
-    grid-column: 12/13;
-    background-image: url(images/jumpSticky.svg);
-    background-position: top;
-    background-repeat: no-repeat;
-}
-main .menuSticky p{
-    text-align: center;
-    font-size: .8rem;
-    padding-top: 8px;
-}
-main .nextSticky{
-    grid-column: 12/13;
-    grid-row: 4/6;
-    background-image: url(images/nextSticky.svg);
-    background-position: bottom;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: end;
-    justify-content: center;
-}
-main .nextSticky p{
-    text-align: center;
-    font-size: .8rem;
-    padding-bottom: 10px;
-}
-main .nextBtn{
-    grid-column: 12/13;
-    grid-row: 6/7;
-}
-main .nextBtn button{
-    padding: 22px 11px 14px 25px;
-    border-radius: 40px;
-    border: 2px solid #000;
-    background: var(--whiteBackground);
-    box-shadow: var(--boxShadow);
-    color: #000;
-    font-family: "Press Start 2P";
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-/*next button hover*/
-main .nextBtn button:hover{
-    background: var(--yellowBackground);
-    cursor: pointer;
-    box-shadow: var(--lightUp);
-}
-main .backBtn{
-    grid-column: 1/2;
-    grid-row: 6/7;
-    display: flex;
-    justify-content: end;
-}
-main .backBtn button{
-    padding: 22px 11px 14px 25px;
-    border-radius: 40px;
-    border: 2px solid #000;
-    background: var(--whiteBackground);
-    box-shadow: var(--boxShadow);
-    color: #000;
-    font-family: "Press Start 2P";
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-/*back button hover*/
-main .backBtn button:hover{
-    background: var(--yellowBackground);
-    cursor: pointer;
-    box-shadow: var(--lightUp);
-}
-main .plansSticky{
-    grid-row: 7/9;
-    grid-column: 1/3;
-    background-image: url(images/plansSticky.svg);
-    background-position: bottom;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: end;
-    justify-content: center;
-}
-main .plansSticky p{
-    text-align: center;
-    font-size: .8rem;
-    padding-bottom: 8px;
-}
-main .plansBtn{
-    grid-row: 9/11;
-    grid-column: 1/3;
-}
-main .plansBtn button{
-    display: inline-flex;
-    height: 84px;
-    padding: 0px 20px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    border-radius: 40px;
-    border: 2px solid #000;
-    background: var(--whiteBackground);
-    box-shadow: var(--boxShadow);
-    color: #000;
-    font-family: "Press Start 2P";
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-/*plans button hover*/
-main .plansBtn button:hover{
-    background: var(--yellowBackground);
-    cursor: pointer;
-    box-shadow: var(--lightUp);
-}
 /*card styles*/
 .cardOne{
     overflow: hidden;
